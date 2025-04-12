@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { db, Food } from '../db';
 import Nav from '../components/Nav';
 
-function AddLog() {
+function LogCreate() {
   const [foods, setFoods] = useState<Food[]>([]);
 
   useEffect(() => {
@@ -11,8 +11,7 @@ function AddLog() {
 
   const addTestFood = async () => {
     await db.foods.add({
-      name: 'Test Chicken',
-      weightGrams: 100,
+      name: 'Chicken',
       caloriesPerGram: 5,
       proteinPerGram: 6,
       fatPerGram: 3.6,
@@ -41,7 +40,7 @@ function AddLog() {
                 className="flex justify-between items-center bg-gray-50 p-3 rounded shadow-sm"
                 >
                 <span className="text-gray-700">
-                    {f.name} - {f.caloriesPerGram * f.weightGrams} kcal
+                    {f.name} - {f.caloriesPerGram} calories per gram
                 </span>
                 <button
                     onClick={() => removeFood(f.id!)}
@@ -64,4 +63,4 @@ function AddLog() {
   );
 }
 
-export default AddLog;
+export default LogCreate;

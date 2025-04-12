@@ -4,7 +4,8 @@ export default function() {
     return (
         <>
             <Nav />
-            <h1>Config</h1>
+            <h1>Food Search</h1>
+            <p>Not in MVP</p>
         </>
     )
 };

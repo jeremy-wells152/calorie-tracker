@@ -1,9 +1,22 @@
 import Dexie, { Table } from 'dexie';
 
+export enum Unit {
+  Gram = "g",
+  Kilogram = "kg",
+  Milliliter = "ml",
+  Liter = "l",
+  Teaspoon = "tsp",
+  Tablespoon = "tbsp",
+  Cup = "cup",
+  Ounce = "oz",
+  FluidOunce = "fl oz",
+  Pound = "lb"
+}
+
 export interface Food {
   id?: number;
   name: string;
-  weightGrams: number;
+  densityGramsPerMl?: number; // used for volume based measurement entries
   caloriesPerGram: number;
   proteinPerGram: number;
   fatPerGram: number;
@@ -14,7 +27,8 @@ export interface Log {
   id?: number;
   date: string; // ISO date string
   foodId: number;
-  quantity: number; // multiplier
+  weightGrams: number;
+  unit: Unit;
 }
 
 class CalorieDB extends Dexie {

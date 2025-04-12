@@ -4,7 +4,7 @@ export default function() {
     return (
         <>
             <Nav />
-            <h1>Config</h1>
+            <h1>Food List</h1>
         </>
     )
 };
