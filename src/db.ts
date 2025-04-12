@@ -3,10 +3,11 @@ import Dexie, { Table } from 'dexie';
 export interface Food {
   id?: number;
   name: string;
-  calories: number;
-  protein: number;
-  fat: number;
-  carbs: number;
+  weightGrams: number;
+  caloriesPerGram: number;
+  proteinPerGram: number;
+  fatPerGram: number;
+  carbsPerGram: number;
 }
 
 export interface Log {
