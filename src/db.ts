@@ -13,21 +13,25 @@ export enum Unit {
   Pound = "lb"
 }
 
+export interface Macros {
+  calories: number;
+  protein: number;
+  fat: number;
+  carbs: number;
+}
+
 export interface Food {
   id?: number;
   name: string;
-  densityGramsPerMl?: number; // used for volume based measurement entries
-  caloriesPerGram: number;
-  proteinPerGram: number;
-  fatPerGram: number;
-  carbsPerGram: number;
+  per100g: Macros;
+  per100ml?: Macros;
 }
 
 export interface Log {
   id?: number;
   date: string; // ISO date string
   foodId: number;
-  weightGrams: number;
+  amount: number;
   unit: Unit;
 }
 

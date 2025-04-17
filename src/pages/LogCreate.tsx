@@ -12,10 +12,12 @@ function LogCreate() {
   const addTestFood = async () => {
     await db.foods.add({
       name: 'Chicken',
-      caloriesPerGram: 5,
-      proteinPerGram: 6,
-      fatPerGram: 3.6,
-      carbsPerGram: 0,
+      per100g: {
+        calories: 100,
+        protein: 30,
+        carbs: 30,
+        fat: 30
+      }
     });
     const updated = await db.foods.toArray();
     setFoods(updated);
@@ -40,7 +42,7 @@ function LogCreate() {
                 className="flex justify-between items-center bg-gray-50 p-3 rounded shadow-sm"
                 >
                 <span className="text-gray-700">
-                    {f.name} - {f.caloriesPerGram} calories per gram
+                    {f.name} - {f.per100g.calories} calories per 100 gram
                 </span>
                 <button
                     onClick={() => removeFood(f.id!)}
